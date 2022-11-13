@@ -1,24 +1,69 @@
 
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../resources/constants.dart';
 import '../resources/dimension.dart';
 
-class CustomLayout extends StatelessWidget{
+class CustomLayout extends StatefulWidget{
+  @override
+  State<CustomLayout> createState() => _CustomLayoutState();
+}
+
+class _CustomLayoutState extends State<CustomLayout> {
+  Formations formation= Formations.FOUR_FOUR_TWO;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Stack(
-      children: [
-        FootballPitchBackgroundView(),
-        //Formation442View(),
-        //Formation4231View(),
-        //Formation433View(),
-        Formation343View(),
-      ],
+    return Scaffold(
+      body: Stack(
+        children: [
+          FootballPitchBackgroundView(),
+          //Formation442View(),
+          //Formation4231View(),
+          //Formation433View(),
+          //Formation343View(),
+          FormationView(formation: this.formation),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+      child: Icon(Icons.refresh),
+      backgroundColor: Colors.blue,
+        onPressed: (){
+        setState(() {
+          formation=Formations.values[Random().nextInt(Formations.values.length)];
+        });
+        },
+
+    )
     );
   }
+}
 
+class FormationView extends StatelessWidget{
+  final Formations formation;
+  FormationView ({required this.formation});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: _generateFormation(formation),
+    );
+  }
+  Widget _generateFormation(Formations formation) {
+    switch (formation){
+      case Formations.FOUR_FOUR_TWO:
+        return Formation442View();
+      case Formations.FOUR_TWO_THREE_ONE:
+        return Formation4231View();
+      case Formations.FOUR_THREE_THREE:
+        return Formation433View();
+      case Formations.THREE_FOUR_THREE:
+        return Formation343View();
+    }
+  }
 }
 
 class Formation442View extends StatelessWidget{
