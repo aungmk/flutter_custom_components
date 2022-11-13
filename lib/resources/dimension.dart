@@ -15,3 +15,4 @@ const TEXT_HEADING_2X=28.0;
 const TEXT_BIG=32.0;
 
 const FOOTBALL="assets/images/ball.png";
+const FOOTBALLNET="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Football_field.svg/507px-Football_field.svg.png";

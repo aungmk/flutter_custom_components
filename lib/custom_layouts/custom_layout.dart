@@ -66,7 +66,7 @@ class FootballPitchBackgroundView extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      child: Image.asset(FOOTBALL,
+      child: Image.network(FOOTBALLNET,
       width: double.infinity,
       height: double.infinity,
       fit: BoxFit.fill,
