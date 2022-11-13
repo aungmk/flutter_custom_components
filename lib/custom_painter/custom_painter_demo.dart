@@ -37,11 +37,13 @@ class DemoCustomPainter extends CustomPainter{
 class CustomPainterDemo extends StatelessWidget{
   @override
   Widget build(BuildContext context){
-    return Container(
-      child: Center(
-        child: CustomPaint(
-          size: Size(300,300),
-          painter: DemoCustomPainter(),
+    return Scaffold(
+      body: Container(
+        child: Center(
+          child: CustomPaint(
+            size: Size(300,300),
+            painter: DemoCustomPainter(),
+          ),
         ),
       ),
     );
